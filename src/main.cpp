@@ -1,5 +1,7 @@
 #include <Arduino.h>
 
+// Here are some changes I made
+
 // put function declarations here:
 int myFunction(int, int);
 
