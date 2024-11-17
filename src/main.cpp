@@ -58,7 +58,7 @@ const double minDistance = 25;
 const int crossTime = 10 * 1000 - 1; // 10 seconds
 const int gateUp = 150;
 const int gateDown = 50;
-const int numbers[10][7] = {
+const int numbers[11][7] = {
     {1, 1, 1, 1, 1, 1, 0}, // 0
     {0, 1, 1, 0, 0, 0, 0}, // 1
     {1, 1, 0, 1, 1, 0, 1}, // 2
@@ -68,7 +68,8 @@ const int numbers[10][7] = {
     {1, 0, 1, 1, 1, 1, 1}, // 6
     {1, 1, 1, 0, 0, 0, 0}, // 7
     {1, 1, 1, 1, 1, 1, 1}, // 8
-    {1, 1, 1, 1, 0, 1, 1}  // 9
+    {1, 1, 1, 1, 0, 1, 1}, // 9
+    {0, 0, 0, 0, 0, 0, 0}, // off
 };
 
 // States
@@ -192,7 +193,7 @@ void loop()
   {
     gate.write(gateUp);           // Move the gate up
     digitalWrite(yellowPin, LOW); // Turn off yellow lights
-    displayNumber(0);             // Show 0
+    displayNumber(10);            // Turn off
   }
 
   // Buzzer logic
