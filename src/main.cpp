@@ -1,9 +1,27 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-// Function declarations
-long readUltrasonicDistance(int, int);
-void displayNumber(int);
+/**
+ * @brief Reads the distance from an ultrasonic sensor.
+ *
+ * This function triggers the ultrasonic sensor and calculates the distance
+ * based on the time it takes for the echo to return.
+ *
+ * @param trigPin The pin number used to trigger the ultrasonic sensor.
+ * @param echoPin The pin number used to read the echo from the ultrasonic sensor.
+ * @return long The distance measured in centimeters.
+ */
+long readUltrasonicDistance(int trigPin, int echoPin);
+
+/**
+ * @brief Displays a number on a 7-segment display.
+ *
+ * This function takes an integer input and activates the corresponding
+ * segments of the display to show the number.
+ *
+ * @param num The integer number to be displayed (0-9).
+ */
+void displayNumber(int num);
 
 // Button pins
 const int buttonPin = 2;
@@ -36,10 +54,10 @@ const int segmentD = A1;
 Servo gate;
 
 // Constants
-const double minDistance = 10;
+const double minDistance = 25;
 const int crossTime = 10 * 1000 - 1; // 10 seconds
 const int gateUp = 150;
-const int gateDown = 30;
+const int gateDown = 50;
 const int numbers[10][7] = {
     {1, 1, 1, 1, 1, 1, 0}, // 0
     {0, 1, 1, 0, 0, 0, 0}, // 1
